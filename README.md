@@ -1,5 +1,5 @@
 
-# Hey!, I have host this Application code on AWS. You can check it out here (http://3.210.11.213/contactout-main/index.php/login)
+# Hey!, I have host this Application code on AWS. You can check it out here (http://3.210.11.213/contactout-main/index.php)
 * login and register - http://3.210.11.213/contactout-main/index.php/login
 * After Login and register - http://3.210.11.213/contactout-main/index.php/referrals
 * Referral Link Example - http://3.210.11.213/contactout-main/index.php/register?referral=MTA=
