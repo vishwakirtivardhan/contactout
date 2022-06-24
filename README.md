@@ -5,10 +5,10 @@
 * Referral Link Example - http://3.210.11.213/contactout-main/index.php/register?referral=MTA=
 
 # Resources used:
-* Laravel Command (Cron Job) : For Sending Mail one by one. Fast response while saving the lead, server load will be maintained. It is act like queue basically.
+* Laravel Command (Cron Job) : For Sending Mail one by one. Fast response while saving the referrals, server load will be maintained. It is act like queue basically.
 * Middleware for route authorization.
 * Laravel Auth for Saving the time of create login and sign up functionality.   
-* Ajax : while entring the email address in input field check the validate email.
+* Ajax : while enter the email address in input field check the email validate.
 * Select2 , Data Tables, Bootstrap4 for display the data.
 
 # Coding Challenge
