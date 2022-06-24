@@ -12,7 +12,7 @@
     <!-- Scripts -->
     <script>
 
-    var base_url = window.location.origin+'/contactout/index.php/';
+    var base_url = window.location.origin+'/contactout-main/index.php/';
     </script>
     <!-- <script src="{{ asset('js/app.js') }}" defer></script> -->
 
