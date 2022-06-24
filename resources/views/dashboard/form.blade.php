@@ -68,7 +68,7 @@
                             <td>{{$res['refferal_email']}}</td>
                             <td><?php echo $res['send_status']==1?'Yes':'No'; ?></td>
                             <td><?php echo $res['profile_created']==1?'Yes':'No'; ?></td>
-                            <td>{{$res['created_at']}}</td>
+                            <td>{{ date('Y-m-d h:i:s', strtotime($res['created_at'])); }}</td>
                         </tr>
                     @endforeach
                     </tbody>
