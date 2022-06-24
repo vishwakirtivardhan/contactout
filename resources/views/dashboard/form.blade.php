@@ -58,7 +58,7 @@
                         <tr>
                             <th>Email Referred</th>
                             <th>Referral Email Sent</th>
-                            <th>Status </th>
+                            <th>User Login </th>
                             <th>Date</th>
                         </tr>
                     </thead>

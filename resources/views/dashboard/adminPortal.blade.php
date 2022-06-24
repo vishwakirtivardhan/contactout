@@ -14,7 +14,7 @@
                             <th>Referrer</th>
                             <th>Email Referred</th>
                             <th>Email-Trigger</th>
-                            <th>Status </th>
+                            <th>User Login </th>
                             <th>Date</th>
                         </tr>
                     </thead>
