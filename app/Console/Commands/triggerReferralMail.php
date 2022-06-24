@@ -55,11 +55,15 @@ class triggerReferralMail extends Command
             foreach($result as $res){
                 $response = $this->referralEmailTrigger($res->refferal_email,$res->id,$res->sender_name);
                 // print_r($response);die;
+                $referral_code_Save = referralEmail::find($res->id);
+                
                 if($response=='success'){
-                    $referral_code_Save = referralEmail::find($res->id);
                     $referral_code_Save->send_status = 1;
-                    $referral_code_Save->save();
-                } 
+                    
+                } else{
+                    $referral_code_Save->send_status = 2;
+                }
+                $referral_code_Save->save();
             }
         }
 
