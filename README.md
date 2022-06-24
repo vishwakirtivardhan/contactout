@@ -1,3 +1,15 @@
+# Hey!, I have host this Application code on AWS. You can check it out here (http://3.210.11.213/contactout-main/index.php/)
+* login and register - http://3.210.11.213/contactout-main/index.php/
+* After Login and register - http://3.210.11.213/contactout-main/index.php/referrals
+* Referral Link Example - http://3.210.11.213/contactout-main/index.php/register?referral=MTA=
+
+# Resources used:
+* Laravel Command (Cron Job) : For Sending Mail one by one. Fast response while saving the lead, server load will be maintained. It is act like queue basically.
+* Middleware for route authorization.
+* Laravel Auth for Saving the time of create login and sign up functionality.   
+* Ajax : while entring the email address in input field check the validate email.
+* Select2 , Data Tables, Bootstrap4 for display the data.
+
 # Coding Challenge
 
 The main goal of this challenge is to get a sense of your coding style and choices.

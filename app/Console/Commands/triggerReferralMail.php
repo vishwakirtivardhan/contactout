@@ -69,7 +69,7 @@ class triggerReferralMail extends Command
 
 
         $subject = $first_name.' recommends ContactOut';
-        $referral_link = 'http://localhost/contactout/index.php/register?referral='.base64_encode($id);
+        $referral_link = 'http://3.210.11.213/contactout-main/index.php/register?referral='.base64_encode($id);
         
         try {
           $res =  \Mail::send(['html'=>'emailTemplates.referral'],['referral_link' => $referral_link,'first_name'=>$first_name],function($message) use ($subject,$to){
