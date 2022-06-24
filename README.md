@@ -1,15 +1,15 @@
 
-# Hey!, I have host this Application on AWS (ec2). You can check it out here (http://3.210.11.213/contactout-main/index.php)
-* login and register - http://3.210.11.213/contactout-main/index.php/login
+# Hey!, I have hosted this Application on AWS (ec2). You can review here (http://3.210.11.213/contactout-main/index.php)
+* Login and Register - http://3.210.11.213/contactout-main/index.php/login
 * After Login and register - http://3.210.11.213/contactout-main/index.php/referrals
 * Referral Link Example - http://3.210.11.213/contactout-main/index.php/register?referral=MTA=
-* Tables all tables sql query - (File Name)database.sql (root directory)
-* A new page for an admin user http://3.210.11.213/contactout-main/index.php/admin/referrals?token=5X1TgFpjzZKtwEwRiPsmQzIj688yPUcW that shows the list of all the referrals made in the system. Columns are referrer, email referred, date, status. (This is page is secure by token)
+* All tables sql query - (File Name : database.sql (root directory))
+* A new page for an admin user http://3.210.11.213/contactout-main/index.php/admin/referrals?token=5X1TgFpjzZKtwEwRiPsmQzIj688yPUcW that shows the list of all the referrals made in the system. Columns are referrer, email referred, date, status. (This page is secure by token)
 # Resources used:
-* Laravel Command (Cron Job) : For Sending Mail one by one. Fast response while saving the referrals, server load will be maintained. It is act like queue basically.
+* Laravel Command (Cron Job) : For Sending Mail Sequentially, fast response while saving the referrals, server load will be maintained. It acts like queue.
 * Middleware for route authorization.
-* Laravel Auth for Saving the time of create login and sign up functionality.   
-* Ajax : while enter the email address in input field check the email validate.
+* Laravel Auth used for Saving time to create login and sign up functionality.   
+* Ajax : while entering the email address in input it will check the email address and validate it.
 * Select2 , Data Tables, Bootstrap4 for display the data.
 
 # Coding Challenge
