@@ -19,8 +19,8 @@
                     </div>
                     @endif
                     
-                    @if($fieldCount >= 0)
-                    You can enter upto {{ $fieldCount; }} emails.
+                    @if($fieldCount > 0)
+                    You can enter upto {{ $fieldCount }} emails.
                     <form action="submitForm" method="post">
                         @csrf
                         <div class="form-group">
@@ -37,7 +37,6 @@
                     <div class="alert alert-danger" role="alert">
                     your referral limit exceeded.
                     </div>
-                    
                     @endif
                 </div>
             </div>
