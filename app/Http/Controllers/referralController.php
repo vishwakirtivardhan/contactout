@@ -52,6 +52,10 @@ protected function validateEmail(Request $res)
 protected function referralsEmailSave(Request $res)
  {
 
+    if(gettype($res['referralEmail'])!='array'){
+        return back()->with('inserterror','Wrong Input');
+        exit('variables are equal');
+    }
     // Validation set of emails.
     $emails = $this->checkMailId($res['referralEmail']);
     $insertValue = array();
