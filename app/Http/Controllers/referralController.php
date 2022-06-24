@@ -66,7 +66,7 @@ protected function referralsEmailSave(Request $res)
 
     $data = referralEmail::insert($insertValue);
     if($data)
-        return back()->with('success','Refferals Will Send in Mintues!');
+        return back()->with('success','Refferals Will Send In A Mintue!');
     else
         return back()->with('inserterror','We are getting some error.');
  }
@@ -79,15 +79,17 @@ protected function referralsEmailSave(Request $res)
     $emailSet2 = User::pluck('email')->toArray();
     $emailSet = array_merge($emailSet1,$emailSet2);
     
-    array_push($emails,'kirti@mail.com');
     $arrayExists = array_intersect($emails,$emailSet);
-    if(!empty($arrayExists)){
-        foreach($arrayExists as $key=>$val){
+    if(!empty($arrayExists))
+    {
+        foreach($arrayExists as $key=>$val)
+        {
          unset($emails[$key]);
-    }
-    return $emails;
+        }
+
     }
 
+	return $emails;
 
  }
 // Mail Trigger If we want to send mail at same time at email enter into DB.(Not in use)
@@ -110,15 +112,18 @@ protected function referralsEmailSave(Request $res)
     }
  }*/
 
-protected function AdminRefferals(){
+protected function AdminRefferals(Request $res){
 
+    if($res->token=='5X1TgFpjzZKtwEwRiPsmQzIj688yPUcW'){
     $response['data'] =  $result = \DB::table('referral_emails')
     ->select('usr.name as sender_name','referral_emails.*')
     ->leftjoin('users as usr','referral_emails.user_id','usr.id')
     ->get()
     ->toArray();
 return view('dashboard/adminPortal')->with($response);
-
+ }else{
+     return 'You are at wrong place';
+ }
 }
 
 

@@ -3,7 +3,8 @@
 * login and register - http://3.210.11.213/contactout-main/index.php/login
 * After Login and register - http://3.210.11.213/contactout-main/index.php/referrals
 * Referral Link Example - http://3.210.11.213/contactout-main/index.php/register?referral=MTA=
-
+* Tables all tables sql query - (File Name)database.sql (root directory)
+*  a new page for an admin user http://3.210.11.213/contactout-main/index.php/admin/referrals?token=5X1TgFpjzZKtwEwRiPsmQzIj688yPUcW that shows the list of all the referrals made in the system. Columns are referrer, email referred, date, status. (This is page is secure by token )
 # Resources used:
 * Laravel Command (Cron Job) : For Sending Mail one by one. Fast response while saving the referrals, server load will be maintained. It is act like queue basically.
 * Middleware for route authorization.
