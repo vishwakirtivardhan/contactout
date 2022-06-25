@@ -66,15 +66,16 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        // This is Login through the Referral link               
+    // This is Login through the Referral link               
     if(!empty($data['referral_code'])){
-        // die('hehe');
+        // checking :: link is already used or not.
         $referral_code_Save = referralEmail::where(['profile_created'=>0,'id'=>$data['referral_code']])->first();
         
         if(!empty($referral_code_Save->user_id)){
             $referral_code_Save->profile_created = 1;
             $referral_code_Save->save();
 
+            // Increae the referral count.
             $referral_code = User::where('id',$referral_code_Save->user_id)->first();
             $referral_code->referral_count++;
             $referral_code->save();

@@ -5,6 +5,14 @@
 * Referral Link Example - http://3.210.11.213/contactout-main/index.php/register?referral=MTA=
 * All tables sql query - (File Name : database.sql (root directory))
 * A new page for an admin user http://3.210.11.213/contactout-main/index.php/admin/referrals?token=5X1TgFpjzZKtwEwRiPsmQzIj688yPUcW that shows the list of all the referrals made in the system. Columns are referrer, email referred, date, status. (This page is secure by token)
+
+# Code Overview 
+* Route file :: routes/web.php
+* Controller :: app/Http/Controllers/referralController.php ('All the routes function are in it')
+* View :: resources/views (All View belong to this Folder)
+* Cron Job (Send mail) :: app/Console/Commands/triggerReferralMail.php
+* Increae referral count while register from link (function Create) :: app/Http/Controllers/Auth/RegisterController.php
+
 # Resources used:
 * Laravel Command (Cron Job) : For Sending Mail Sequentially, fast response while saving the referrals, server load will be maintained. It acts like queue.
 * Middleware for route authorization.

@@ -35,10 +35,12 @@ protected function validateEmail(Request $res)
     if ($validator->fails()) {
                 return json_encode(['msg' => 'Enter Valid Email ID','status'=>700]);
     }else{
+        // Check:: email is already register 
         $result = user::where('email',$res['email'])->count();   
         if($result!=0){
             return json_encode(['msg' => 'Email id is already Register','status'=>700]); 
         }
+        // Check:: email referral already sent 
         $result = referralEmail::where('refferal_email',$res['email'])->count('refferal_email');   
         if($result!=0){
             return json_encode(['msg' => 'Referral Already Sent','status'=>700]); 
@@ -56,8 +58,9 @@ protected function referralsEmailSave(Request $res)
         return back()->with('inserterror','Wrong Input');
         exit('variables are equal');
     }
-    // Validation set of emails.
+    // Validation All emails enter in inputbox.
     $emails = $this->checkMailId($res['referralEmail']);
+
     $insertValue = array();
     $userId = auth()->id();
     foreach($emails as $res){
@@ -79,10 +82,12 @@ protected function referralsEmailSave(Request $res)
     
     $emails = array_unique(array_filter($emails)); // Senitization :: remove dupliacte and
    // BackEnd Checks of No duplicate referral sent
+   
+    // Getting all email id from user and referral sent.
     $emailSet1 = referralEmail::pluck('refferal_email')->toArray();
     $emailSet2 = User::pluck('email')->toArray();
     $emailSet = array_merge($emailSet1,$emailSet2);
-    
+    // remove if email already exist in $emailSet Array.
     $arrayExists = array_intersect($emails,$emailSet);
     if(!empty($arrayExists))
     {
@@ -90,7 +95,6 @@ protected function referralsEmailSave(Request $res)
         {
          unset($emails[$key]);
         }
-
     }
 
 	return $emails;
@@ -119,12 +123,14 @@ protected function referralsEmailSave(Request $res)
 protected function AdminRefferals(Request $res){
 
     if($res->token=='5X1TgFpjzZKtwEwRiPsmQzIj688yPUcW'){
+    // Get all the data from referral sent.
     $response['data'] =  $result = \DB::table('referral_emails')
     ->select('usr.name as sender_name','referral_emails.*')
     ->leftjoin('users as usr','referral_emails.user_id','usr.id')
     ->get()
     ->toArray();
-return view('dashboard/adminPortal')->with($response);
+    
+    return view('dashboard/adminPortal')->with($response);
  }else{
      return 'You are at wrong place';
  }

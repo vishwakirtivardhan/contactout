@@ -5,8 +5,9 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
-
+                <div class="card-header">{{ __('Dashboard') }} 
+                    <span class="text-danger">| Referral Count : {{ Auth::user()->referral_count==null ?'0':Auth::user()->referral_count }} </span>
+                </div>
                 <div class="card-body">
                     @if ($message = Session::get('success'))
                     <div class="alert alert-success" role="alert">
@@ -98,8 +99,8 @@ $('select').select2({
             return null;
         } else {
             // Js Email Validation
-            var regex = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i;
-            var validEmail = regex.test(email);
+            var emailvalidate = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i;
+            var validEmail = emailvalidate.test(email);
             // console.log(validEmail);
             if (validEmail != false) {
               // Ajax for checking email id vaild and exists or not.
@@ -146,33 +147,6 @@ $('select').select2({
 
 });
 
-
-/*$("input").focusout(function(){
-    let inputfieldval=  $(this).val();
-    let curretnode = $(this);
-    // var base_url = window.location.origin;
-    // alert(base_url);
-    // let url = base_url+'';
-$.ajax({
-  type: "POST",
-  url: base_url+"validateEmail",
-  data: {'email': inputfieldval,"_token": "{{ csrf_token() }}",}
-}).done(function( result ) {
-    let dataRes = JSON.parse(result);
-    if(dataRes.status==700){
-        msgrs = '<small id="emailHelp"  class="form-text text-danger" >'+dataRes.msg+'</small>';
-        curretnode.focus();
-    }else{
-        msgrs = '<small id="emailHelp" class="form-text text-success" >'+dataRes.msg+'</small>';
-    }
-   // msgrs = '<small id="emailHelp" class="form-text text-muted" >'+dataRes.msg+'</small>';
-    // curretnode.append(msgrs);
-    $(msgrs).insertAfter(curretnode);
-    // alert(dataRes.msg);
-  });
-
-
-});*/
 </script>
 
 @endsection

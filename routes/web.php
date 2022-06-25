@@ -17,20 +17,19 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
-Route::post('ValidateLink',[App\Http\Controllers\referralController::class, 'ValidateLink']);
+Auth::routes(); // Laravel Auth Route for Login and sign up.
+// Route::post('ValidateLink',[App\Http\Controllers\referralController::class, 'ValidateLink']);
 Route::get('home',[App\Http\Controllers\HomeController::class, 'index']);
+// Admin - Dashboard Route
 Route::get('admin/referrals',[App\Http\Controllers\referralController::class, 'AdminRefferals']);
 
 
 
-// Route::get('referrals', [App\Http\Controllers\referralController::class, 'refferalView'])->name('referrals');
-// Route::post('validateEmail',[App\Http\Controllers\referralController::class, 'validateEmail']);
-// Route::post('submitForm',[App\Http\Controllers\referralController::class, 'referralsEmailSave']);
-// Route::get('admin/referrals',[App\Http\Controllers\referralController::class, 'AdminRefferals']);
-
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth'])->group(function () { // Check for user login
+    // Dashboard after login and sign up
     Route::get('referrals', [App\Http\Controllers\referralController::class, 'refferalView'])->name('referrals');
+    // Ajax route check for email validation
     Route::post('validateEmail',[App\Http\Controllers\referralController::class, 'validateEmail']);
+    // Save Email form input box. 
     Route::post('submitForm',[App\Http\Controllers\referralController::class, 'referralsEmailSave']);
 });
