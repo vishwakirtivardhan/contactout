@@ -1,4 +1,4 @@
-
+# Solution :
 # Hey!, I have hosted this Application on AWS (ec2). You can review here (http://3.210.11.213/contactout-main/index.php)
 * Login and Register - http://3.210.11.213/contactout-main/index.php/login
 * After Login and register - http://3.210.11.213/contactout-main/index.php/referrals
@@ -11,8 +11,9 @@
 * Laravel Auth used for Saving time to create login and sign up functionality.   
 * Ajax : while entering the email address in input it will check the email address and validate it.
 * Select2 , Data Tables, Bootstrap4 for display the data.
+* Every Referral link increae the referral count only once. 
 
-# Coding Challenge
+# Coding Challenge :
 
 The main goal of this challenge is to get a sense of your coding style and choices.
 
