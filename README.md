@@ -6,6 +6,20 @@
 * All tables sql query - (File Name : database.sql (root directory))
 * A new page for an admin user http://3.210.11.213/contactout-main/index.php/admin/referrals?token=5X1TgFpjzZKtwEwRiPsmQzIj688yPUcW that shows the list of all the referrals made in the system. Columns are referrer, email referred, date, status. (This page is secure by token)
 
+# Test case
+* Email id should be unique while registeration process.
+* Referral count will only increase first time while registration using referral link. Second time using referral link user can register but referral count will not increase.
+* After login and registration Dashboard will show. Referral count will show on top (Red TEXT) based on number of user register using referral link sent by that user.
+* Email Input box:
+    * Enter Valid email only if it accepted by input box.(abc@mail.com). Else it will Show message like (Enter Valid Email).
+    * Email who are invited already cannot be invited again. It will show message like(Referral Already Sent)
+    * Already register or existing users cannot be invited again. It will show message like (Email id is already Register).
+    * If User already Sent 'N' number of referrals, than he can only enter (10-N) emails in Input box. where (0 < N < 10);
+    * A user can only sent MAX 10 referrals.
+    * If user do malicious practice on frontend, try to send referral on already register and invite email.Then it will take care of at backend while save referrals. And remove already register or referrals invited emails while saving.  
+
+* For Admin user,I created a link with token append in <a href="http://3.210.11.213/contactout-main/index.php/admin/referrals?token=5X1TgFpjzZKtwEwRiPsmQzIj688yPUcW" target="_blank">url</a>. If user have valid token than only he can acces the admin page. Admin page content data regading all referrals sent and user login through link.
+
 # Code Overview 
 * Route file :: routes/web.php
 * Controller :: app/Http/Controllers/referralController.php ('All the routes function are in it')
@@ -18,7 +32,7 @@
 * Middleware for route authorization.
 * Laravel Auth used for Saving time to create login and sign up functionality.   
 * Ajax : while entering the email address in input it will check the email address and validate it.
-* Select2 , Data Tables, Bootstrap4 for display the data.
+* Libray Used: Select2 , Data Tables, Bootstrap4 for display the data.
 * Every Referral link increae the referral count only once. 
 
 # Coding Challenge :
