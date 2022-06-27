@@ -32,8 +32,9 @@
 * Middleware for route authorization.
 * Laravel Auth used for Saving time to create login and sign up functionality.   
 * Ajax : while entering the email address in input it will check the email address and validate it.
-* Libray Used: Select2 , Data Tables, Bootstrap4 for display the data.
+* Library Used: Select2 , Data Tables, Bootstrap4 for display the data.
 * Every Referral link increae the referral count only once. 
+<hr><br><br>
 
 # Coding Challenge :
 
