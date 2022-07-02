@@ -17,8 +17,7 @@ class referralController extends Controller
     $respose = array();
     $userId = auth()->id();
     $respose['data'] = referralEmail::select()->where('user_id',$userId)->get()->toArray();
-    $count = referralEmail::where('user_id',$userId)->count('refferal_email');
-    // config('view.max-referrals') :: count of referrals Max referral manage by Config.
+    $count = count($respose['data']);
     $respose['fieldCount'] = config('view.max-referrals') - $count;  
     return view('dashboard/form')->with($respose);
 
